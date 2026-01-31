@@ -1,0 +1,4 @@
+# Anki Import File (Tab-separated)
+# Format: Front	Back	Tags
+# Import: Anki → File → Import → Select this file
+
