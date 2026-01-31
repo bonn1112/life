@@ -36,17 +36,19 @@ PKCE を使わないリスク
 ---
 ```
 
-### 3. ファイルに追記
+### 3. 日別ファイルに追記
 
-`ideas/english/phrases-YYYYMM.md` に追記（月別ファイル）
+`ideas/english/YYYYMMDD-phrases.md` に追記（日別ファイル）
 
 ファイル形式:
 ```markdown
-# English Phrases: YYYY-MM
+# English Phrases: YYYY-MM-DD
 
-## YYYY-MM-DD
+今日学んだセキュリティフレーズ。NotebookLM にアップロードして Podcast 化。
 
-### [日本語フレーズ]
+---
+
+## [日本語フレーズ]
 
 **English:** [英語フレーズ]
 
@@ -57,9 +59,9 @@ PKCE を使わないリスク
 ---
 ```
 
-### 4. Anki インポート用形式も生成
+### 4. Anki インポート用ファイルにも追記
 
-`ideas/english/anki-import-YYYYMM.txt` に追記（タブ区切り）
+`ideas/english/YYYYMMDD-anki.txt` に追記（タブ区切り、日別）
 
 ```
 [日本語]	[English + Explanation]	[tags]
@@ -68,19 +70,19 @@ PKCE を使わないリスク
 ## 出力
 
 1. 変換結果を表示
-2. `ideas/english/phrases-YYYYMM.md` に追記
-3. `ideas/english/anki-import-YYYYMM.txt` に追記
-4. 「追記完了」メッセージ
+2. `ideas/english/YYYYMMDD-phrases.md` に追記（なければ作成）
+3. `ideas/english/YYYYMMDD-anki.txt` に追記（なければ作成）
+4. 「追記完了。NotebookLM にアップロード可能」メッセージ
 
 ## 例
 
 入力:
 ```
-Token TTL が長いとどうなる
+/anki-phrase Token TTL が長いとどうなる
 ```
 
 出力:
-```
+```markdown
 ## Token TTL が長いとどうなる
 
 **English:** What happens if token TTL is too long?
@@ -94,10 +96,27 @@ token 30 days.
 
 ---
 
-追記完了: ideas/english/phrases-202602.md
+追記完了: ideas/english/20260201-phrases.md
+NotebookLM にアップロードして Podcast 化できます。
 ```
 
-## NotebookLM 用
+## 1日の終わりに
 
-週末に `ideas/english/phrases-YYYYMM.md` を NotebookLM にアップロードすると、
-自動で Podcast 形式の音声学習コンテンツが生成される。
+```
+ideas/english/20260201-phrases.md を NotebookLM にアップロード
+  ↓
+「Audio Overview」生成
+  ↓
+通勤・散歩中に聞く
+```
+
+## ファイル構成
+
+```
+ideas/english/
+├── 20260201-phrases.md    ← NotebookLM用（日別）
+├── 20260201-anki.txt      ← Ankiインポート用（日別）
+├── 20260202-phrases.md
+├── 20260202-anki.txt
+└── ...
+```
